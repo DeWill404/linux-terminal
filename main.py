@@ -1,0 +1,23 @@
+import file
+
+f = file.File()
+
+f.setup()
+print(f.list_file(0))
+f.add_node("A")
+f.add_node(";")
+f.add_node("3")
+f.add_node("r")
+f.moveup()
+f.delete_child(".")
+f.delete_child("..")
+f.delete_child("A")
+f.delete_child("r")
+f.delete_child(";")
+f.delete_child("B")
+print(f.list_child(0))
+f.movedown()
+print(f.select("3"))
+print(f.list_file(0))
+f.moveup()
+print(f.list_child(0))
