@@ -1,0 +1,15 @@
+rmdir   ->      remove directory
+mkdir   ->      create directory
+touch   ->      create file
+rm      ->      remove file
+ls      ->      list content (-a, -l)
+cp      ->      copy file or directory
+mv      ->      move file or directory
+ren     ->      rename file or directory
+pwd     ->      current path
+date    ->      current data (-d, -t)
+cmatrix ->      falling matrix animation
+nano    ->      text editor
+cat     ->      show content of file
+python  ->      run python code
+clear   ->      clear screen
