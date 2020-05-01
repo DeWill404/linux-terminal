@@ -11,41 +11,41 @@ class File(directory.Folder):
     def create(self, name):
         name = self.current + os.sep + name  # Appending to current
         if os.path.isfile(name):  # If file already exit
-            return name + " already exit...."
+            return name.replace(self.root, os.sep) + " already exist...."
         else:
             f = open(name, "w+")  # Create new file
             f.close()
-            return "Success"
+            return "File successfully created..."
 
     # To delete file
     def delete(self, name):
         name = self.current + os.sep + name   # Appending to current
         if os.path.isfile(name):        # If file exit
             os.remove(name)             # Delete
-            return "Success"
-        return "Invalid"
+            return "File successfully removed......"
+        return "Invalid file location........"
 
     # List content of file
     def list_file(self, name):
         name = self.current + os.sep + name       # Appending to current
         if os.path.isfile(name):            # If file exit
             file = open(name, "r+")         # open file
+            print(end="\n")                 # SEPARATOR
             print(file.read(), end="")      # read file
             file.close()
+            print(end="\n")                 # SEPARATOR
             return "Success"
-        return "Invalid file"
+        return "Invalid"
 
     # To run python file
     def run(self):
-        self.nano("temp")                   # Create temporary file
-        file = open(self.root + '/temp', "r")  # Open it
+        self.nano("temp.py")                   # Create temporary file
+        file = open(self.root + os.sep + "temp.py", "r")  # Open it
         try:
-            exec(file.read())               # Execute file
-            self.delete("temp")             # Delete it
-            return "Success"
+            exec(file.read())                  # Execute file
+            self.delete("temp.py")             # Delete it
         except :
-            self.delete("temp")
-            return "Error"
+            self.delete("temp.py")
 
     # To write content in file
     def nano(self, name):
@@ -77,5 +77,5 @@ class File(directory.Folder):
             f = open(name, "r")
             return f.read()
         except FileNotFoundError:
-            return "Invalid"
+            return "Sorry, Manual is missing..."
 

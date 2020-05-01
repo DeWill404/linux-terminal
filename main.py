@@ -14,10 +14,10 @@ while True:
             print(F.curr())
 
         elif cmd_split[0].lower() == "mkdir":
-            print(F.make_dir(cmd_split[1]))
+            F.make_dir(cmd_split[1])
 
         elif cmd_split[0].lower() == "rmdir":
-            print(F.remove_dir(cmd_split[1]))
+            F.remove_dir(cmd_split[1])
 
         elif cmd_split[0].lower() == "cd":
             print(F.change_dir(cmd_split[1]))
@@ -56,13 +56,14 @@ while True:
             print(F.delete(cmd_split[1]))
 
         elif cmd_split[0].lower() == "cat":
-            print(F.list_file(cmd_split[1]))
+            if F.list_file(cmd_split[1]) == "Invalid":
+                print(f"Can't find file {cmd_split[1]}...")
 
         elif cmd_split[0].lower() == "nano":
             print(F.nano(cmd_split[1]))
 
         elif cmd_split[0].lower() == "python":
-            print(F.run())
+            F.run()
 
         elif cmd_split[0] == "man":
             print(F.manual())

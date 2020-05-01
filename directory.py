@@ -19,13 +19,13 @@ class Folder:
     def make_dir(self, name):
         dir_path = self.current + os.sep + name
         if os.path.exists(dir_path):
-            return name + " Directory already exit..."
+            print(f"{name} Directory already exit...")
         else:
             try:
                 os.mkdir(dir_path)
-                return "Success"
+                print(f"Directory {name} is successfully created...")
             except OSError:
-                return "Invalid"
+                print("Invalid path...")
 
     # Removing directory
     def remove_dir(self, name):
@@ -34,9 +34,9 @@ class Folder:
         if os.path.exists(dir_path) and os.path.isdir(dir_path):
             if (name != "..") and (name != "."):
                 shutil.rmtree(dir_path)
-                return "Success"
+                print(f"Directory {name} is successfully removed...")
         else:
-            return "Invalid"
+            print("Invalid path.......")
 
     # Changing current directory
     def change_dir(self, name):
@@ -58,8 +58,8 @@ class Folder:
                     temp += os.sep + name
             if self.root in temp:   # If you are inside root directory
                 self.current = temp
-                return "Success"
-        return "Invalid"
+                return self.curr()
+        return "Invalid path...."
 
     # List content of current directory
     def list_folder(self, show):
@@ -101,8 +101,8 @@ class Folder:
                             shutil.move(orignal, target)
                         except FileExistsError:
                             return "Can't move a directory to file"
-                        return "Success"
-        return "Invalid"
+                        return "Move successful........."
+        return "Invalid path......."
 
     # To copy one directory to other
     def copy(self, orignal, target):
@@ -115,15 +115,17 @@ class Folder:
                 if os.path.exists(target):
                     # Can't go outside root directory
                     if (self.root in orignal) and (self.root in target):
-                        target = r'{}'.format(target)       # Encoding
                         orignal = r'{}'.format(orignal)     # Encoding
+                        target = r'{}'.format(target)       # Encoding
                         try:
-                            shutil.copy(orignal, target)
+                            if os.path.isdir(self.current + os.sep + temp):  # IF src is directory
+                                shutil.copytree(orignal, os.path.join(target, temp))
+                            else:                                            # IF src is file
+                                shutil.copy(orignal, target)
                         except IsADirectoryError:
                             return "Can't copy a directory in a file"
-                        return "Success"
-        else:
-            return "Invalid"
+                        return "Copy successfully......."
+        return "Invalid path...."
 
     # Renaming file and directory
     def rename(self, original, target):
@@ -133,8 +135,8 @@ class Folder:
             if os.path.exists(original) or os.path.isfile(original):
                 if self.root in original:
                     os.rename(original, target)
-                    return "Success"
-        return "Invalid"
+                    return "Rename successful....."
+        return "Invalid path......"
 
     # To clear screen
     def clear(self):
