@@ -4,7 +4,6 @@ import rain
 import file
 
 F = file.File()
-
 while True:
     print(f"{F.curr()} $", end=" ")
     cmd = input()
@@ -69,7 +68,10 @@ while True:
             print(F.manual())
 
         elif cmd_split[0] == "cmatrix":
-            rain.Cmatrix()
+            if F.os_type == "posix":
+                rain.Cmatrix()
+            else:
+                print("Sorry, This feature is only available for Linux & Mac...")
 
         elif cmd_split[0] == "clear":
             F.clear()

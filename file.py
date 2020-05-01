@@ -50,7 +50,7 @@ class File(directory.Folder):
     # To write content in file
     def nano(self, name):
         self.create(name)       # Create file if does not exit
-        os.system("clear")      # Clear Screen
+        self.clear()      # Clear Screen
         # Open text editor
         print(f"{name.replace(self.root,os.sep)} is opened, Ctrl-D to save it.")
         name = self.current + os.sep + name
@@ -66,15 +66,16 @@ class File(directory.Folder):
                 file.write(input()+"\n")
             except EOFError:
                 break
-        os.system("clear")
+        self.clear()
         file.close()
         return f"{name.replace(self.root,os.sep)} is edited successfully"
 
     def manual(self):
         name = "manual.txt"
         try:
-            os.system("clear")
+            self.clear()
             f = open(name, "r")
             return f.read()
         except FileNotFoundError:
             return "Invalid"
+

@@ -5,7 +5,8 @@ import time
 
 class Folder:
     def __init__(self):
-        self.root = os.getcwd() + os.sep + "asset"  # Location of root folder
+        self.os_type = os.name                          # Get type of os
+        self.root = os.getcwd() + os.sep + "asset"      # Location of root folder
         self.current = self.root                        # Pointer to current folder
         if not os.path.exists(self.root):               # If root does not exit
             os.mkdir(self.root)                         # Create asset as root
@@ -137,8 +138,10 @@ class Folder:
 
     # To clear screen
     def clear(self):
-        os.system("clear")
-
+        if self.os_type == "posix":
+            os.system("clear")
+        else:
+            os.system("cls")
 
 
 
