@@ -47,6 +47,7 @@ class File(directory.Folder):
             exec(file.read())                               # Execute file
         except Exception as e:
             print(e)
+        file.close()
         self.delete("temp.py")  # Delete it
 
     # To write content in file
