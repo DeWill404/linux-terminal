@@ -1,6 +1,4 @@
 from datetime import datetime
-
-import rain
 import file
 
 F = file.File()
@@ -70,6 +68,7 @@ while True:
 
         elif cmd_split[0] == "cmatrix":
             if F.os_type == "posix":
+                import rain
                 rain.Cmatrix()
             else:
                 print("Sorry, This feature is only available for Linux & Mac...")

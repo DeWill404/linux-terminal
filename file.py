@@ -1,3 +1,4 @@
+import sys
 import os
 import directory
 
@@ -38,21 +39,22 @@ class File(directory.Folder):
         return "Invalid"
 
     # To run python file
-    def run(self):
+    def run(self, mode='activate'):
+        self.delete("temp.py")
         self.nano("temp.py")                   # Create temporary file
         file = open(self.root + os.sep + "temp.py", "r")  # Open it
         try:
-            exec(file.read())                  # Execute file
-            self.delete("temp.py")             # Delete it
-        except :
-            self.delete("temp.py")
+            exec(file.read())                               # Execute file
+        except Exception as e:
+            print(e)
+        self.delete("temp.py")  # Delete it
 
     # To write content in file
     def nano(self, name):
         self.create(name)       # Create file if does not exit
         self.clear()      # Clear Screen
         # Open text editor
-        print(f"{name.replace(self.root,os.sep)} is opened, Ctrl-D to save it.")
+        print(f"{name.replace(self.root,os.sep)} is opened, Ctrl-D or Ctrl+Z+Enter(Windows) to save it.")
         name = self.current + os.sep + name
         if os.path.getsize(name) != 0:      # If file is not empty
             file = open(name, "r+")
@@ -61,11 +63,9 @@ class File(directory.Folder):
             file = open(name, "a+")
         else:                               # If file is empty
             file = open(name, "w+")
-        while True:
-            try:
-                file.write(input()+"\n")
-            except EOFError:
-                break
+        inputs = sys.stdin.readlines()
+        for lines in inputs:
+            file.write(lines)
         self.clear()
         file.close()
         return f"{name.replace(self.root,os.sep)} is edited successfully"

@@ -99,8 +99,10 @@ class Folder:
                         orignal = r'{}'.format(orignal)     # Encoding
                         try:
                             shutil.move(orignal, target)
-                        except FileExistsError:
-                            return "Can't move a directory to file"
+                        except IsADirectoryError:
+                            return "Can't move a directory to file....."
+                        except shutil.Error:
+                            return f"File or directory is already exist...."
                         return "Move successful........."
         return "Invalid path......."
 
@@ -124,6 +126,8 @@ class Folder:
                                 shutil.copy(orignal, target)
                         except IsADirectoryError:
                             return "Can't copy a directory in a file"
+                        except FileExistsError:
+                            return "File or directory already exist......"
                         return "Copy successfully......."
         return "Invalid path...."
 
@@ -140,10 +144,7 @@ class Folder:
 
     # To clear screen
     def clear(self):
-        if self.os_type == "posix":
-            os.system("clear")
-        else:
-            os.system("cls")
+        os.system("clear" if self.os_type == "posix" else "cls")
 
 
 
