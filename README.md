@@ -7,8 +7,8 @@ Consist of commands like
   * mkdir _(Make directory at specified valid location)_
       mkdir path_of_dir
   * ls _(List current directory content)_
-   1 ls 
-   2 ls -a _(Show hidden files)_
+    * ls 
+    * ls -a _(Show hidden files)_
   * touch _(Create new file at specified pat with new name)_
       touch path/file_name
   * rm _(Remove already present file)_
