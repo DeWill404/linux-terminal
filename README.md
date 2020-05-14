@@ -3,7 +3,7 @@ This project is replica of linux terminal, which done in python
 it is in v 0.1
 Consist of commands like
   * rmdir _(Remove empty of filled directory)_
-      rmdir path_of_dir
+    * rmdir path_of_dir
   * mkdir _(Make directory at specified valid location)_
     * mkdir path_of_dir
   * ls _(List current directory content)_
