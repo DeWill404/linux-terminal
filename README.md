@@ -16,7 +16,7 @@ Consist of commands like
   * cp _(Copy file or directory)_
     * cp source_path destination_directory
   * mv _(Move file or directory)_
-    mv source_path destination_directory
+    * mv source_path destination_directory
   * ren _(Rename specified file or directory)_
     * ren source_path destination_path
   * pwd _(Get current path)_
