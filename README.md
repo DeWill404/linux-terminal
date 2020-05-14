@@ -1,39 +1,27 @@
 # linux-terminal
 This project is replica of linux terminal, which done in python
 it is in v 0.1
-Consist of commands like
-  * rmdir _(Remove empty of filled directory)_
-    * rmdir path_of_dir
-  * mkdir _(Make directory at specified valid location)_
-    * mkdir path_of_dir
-  * ls _(List current directory content)_
-    * ls 
-    * ls -a _(Show hidden files)_
-  * touch _(Create new file at specified pat with new name)_
-    * touch path/file_name
-  * rm _(Remove already present file)_
-    rm path
-  * cp _(Copy file or directory)_
-    * cp source_path destination_directory
-  * mv _(Move file or directory)_
-    * mv source_path destination_directory
-  * ren _(Rename specified file or directory)_
-    * ren source_path destination_path
-  * pwd _(Get current path)_
-    * pwd
-  * date _(Current date and time)_
-    * date
-    * date -d _(Only Date)_
-    * date -t _(Only Time)_
-  * nano _(Text editor)_
-    * nano fileName
-  * cat _(display context of file)_
-    * cat fileName
-  * python _(Python interpreter)_
-    * python
-  * clear _(Clear Screen)_
-    * clear
-  14 cmatrix _(Falling matrix animation)_
-    * cmatrix
+Consist of commands like,
+  
+| Sr. No. | Command | Examples | Description |
+|:--------:| :-------------| :------| :----:|
+| 1 | rmdir | rmdir path_of_dir | Remove empty of filled directory|
+| 2 | mkdir | mkdir path_of_dir | Make directory at specified valid location|
+| 3 | ls | ls | List current directory content|
+||| ls -a | Show hidden files
+| 4 | touch | touch path/file_name | Create new file at specified pat with new name |
+| 5 | rm | rm file_path | Remove already present file |
+| 6 | cp | cp source_path destination_directory | Copy file or directory |
+| 7 | mv | mv source_path destination_directory | Move file or directory |
+| 8 | ren | ren source_path destination_path | Rename specified file or directory |
+| 9 | pwd | pwd | Get current path |
+| 10 | date | date | Get current date and time |
+||| date -d | Get date |
+||| date -t | Get time |
+| 11 | nano | nano fileName | Text Editor |
+| 12 | cat | cat fileName | Display content of a file |
+| 13 | python | python | Python interpretor |
+| 14 | clear | clear | Clear Screen |
+| 15 | cmatrix | cmatrix | Falling matrix animation |
 
-Tt can run on both WIndows and linux
+## It can run on both Windows and linux ##
