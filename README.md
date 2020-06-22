@@ -23,5 +23,6 @@ Consist of commands like,
 | 13 | python | python | Python interpretor |
 | 14 | clear | clear | Clear Screen |
 | 15 | cmatrix | cmatrix | Falling matrix animation |
+| 16 | cd | cd directory_name | Change directory |
 
 ## It can run on both Windows and linux ##

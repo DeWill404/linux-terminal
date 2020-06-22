@@ -2,6 +2,7 @@ rmdir   ->      remove directory
 mkdir   ->      create directory
 touch   ->      create file
 rm      ->      remove file
+cp		->		Move in or out of directories
 ls      ->      list content (-a, -l)
 cp      ->      copy file or directory
 mv      ->      move file or directory
